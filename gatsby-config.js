@@ -1,8 +1,43 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Profile of Judit Greskovits`,
+    description: `Judit Greskovits is a full stack developer with a focus on Javascript, React and Node.js`,
+    author: `@juditgreskovits`,
+    index: {
+      headline: `My name is Judit Greskovits.`,
+      code: `I mostly write code.`,
+      talk: `Sometimes I talk.`,
+    },
+    social: {
+      github: {
+        link: `https://github.com/juditgreskovits`,
+      },
+      linkedIn: {
+        link: `https://www.linkedin.com/in/judit-greskovits-00b460b/`,
+      },
+    },
+    talks: [
+      {
+        link: `https://www.youtube.com/watch?v=aburxGiXb3w`,
+        title: `Cypress + Auth0`,
+        description: ``,
+      },
+      {
+        link: `https://www.youtube.com/watch?v=72SkKIm9Vgo&t=7s`,
+        title: `How to build a Redux Middleware for Analytics`,
+        description: ``,
+      },
+      {
+        link: `https://www.youtube.com/watch?v=MPek7QF71SA`,
+        title: `Using React with Meteor`,
+        description: ``,
+      },
+      {
+        link: `https://www.youtube.com/watch?v=727BMvX6tqw`,
+        title: `Portfolio: A case study`,
+        description: ``,
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,11 +59,37 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/juditgreskovits-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Ubuntu`,
+            variants: [`500`],
+            subsets: [`latin`],
+          },
+          {
+            family: `Ubuntu Mono`,
+            variants: [`700`],
+            subsets: [`latin`],
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: /assets/,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

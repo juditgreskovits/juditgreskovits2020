@@ -5,47 +5,31 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { Reset } from 'styled-reset';
 
-import Header from "./header"
-import "./layout.css"
+import { theme } from './theme';
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+export const Dark = styled.div`
+  background-color: ${({ theme }) => theme.color.dark};
+`;
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+export const Light = styled.div`
+  background-color: ${({ theme }) => theme.color.light};
+`;
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+export const Container = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 8px 32px;
+`;
 
-export default Layout
+const Layout = ({ children }) => (
+  <>
+    <Reset />
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  </>
+);
+
+export default Layout;

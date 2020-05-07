@@ -1,21 +1,66 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout, { Dark, Light, Container } from '../components/layout';
+import SEO from '../components/seo';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+import Social from '../components/social';
+import { H1, H2, H3, UL, LI, A } from '../components/typography';
 
-export default IndexPage
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query SiteContentQuery {
+      site {
+        siteMetadata {
+          index {
+            headline
+            code
+            talk
+          }
+          talks {
+            link
+            title
+          }
+        }
+      }
+    }
+  `);
+
+  const { index, talks } = data.site.siteMetadata;
+  const { headline, code, talk } = index;
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Light>
+        <Container>
+          <H1>{headline}</H1>
+        </Container>
+      </Light>
+      <Dark>
+        <Container>
+          <H2>
+            I mostly write <span>code</span>.
+          </H2>
+        </Container>
+      </Dark>
+      <Light>
+        <Container>
+          <H3>{talk}</H3>
+          <UL>
+            {talks.map((t, i) => (
+              <LI key={`talk-${i}`}>
+                <A href={t.link} target="_blank">
+                  {t.title}
+                </A>
+              </LI>
+            ))}
+          </UL>
+        </Container>
+      </Light>
+      <Social />
+    </Layout>
+  );
+};
+
+export default IndexPage;
