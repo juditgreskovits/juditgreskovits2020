@@ -4,6 +4,10 @@
   "description": "Profile of Judit Greskovits - built with Gatsby",
   "version": "0.1.0",
   "author": "Judit Greskovits <juditgreskovits@gmail.com>",
+  "engines": {
+    "node": "12.16.x",
+    "npm": "6.x"
+  },
   "dependencies": {
     "babel-plugin-styled-components": "1.10.7",
     "gatsby": "2.21.0",
@@ -35,7 +39,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby serve",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
