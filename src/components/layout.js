@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Reset } from 'styled-reset';
 
 import { theme } from './theme';
-import { TypographyGlobalStyle } from './typography';
+import { GlobalTypography } from './typography';
 
 export const Dark = styled.div`
   background-color: ${({ theme }) => theme.color.dark};
@@ -36,11 +36,18 @@ export const Container = styled.div`
   }
 `;
 
+const GlobalStyle = createGlobalStyle`
+  html {
+    background-color: ${({ theme }) => theme.color.light};
+  }
+  ${GlobalTypography}
+`;
+
 const Layout = ({ children }) => (
   <>
     <Reset />
     <ThemeProvider theme={theme}>
-      <TypographyGlobalStyle />
+      <GlobalStyle />
       {children}
     </ThemeProvider>
   </>

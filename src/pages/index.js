@@ -29,16 +29,14 @@ const IndexPage = () => {
   const { index, talks } = data.site.siteMetadata;
   const { headline, code, talk } = index;
 
-  console.log('headline = ', headline);
-
   const getHeadlineMarkup = () => ({ __html: headline.split('  ').join('<br/> ') });
-  console.log('getHeadlineMarkup = ', getHeadlineMarkup());
   const getCodeMarkup = () => ({
     __html: code.split('  ').join('<br/> ').replace('*', '<span>').replace('*', '</span>'),
   });
 
   return (
     <Layout>
+      <Social />
       <SEO title="Home" />
       <Light>
         <Container>
@@ -64,7 +62,6 @@ const IndexPage = () => {
           </UL>
         </Container>
       </Light>
-      <Social />
     </Layout>
   );
 };

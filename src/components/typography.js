@@ -1,15 +1,19 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const TypographyGlobalStyle = createGlobalStyle`
+export const GlobalTypography = css`
   html {
     font-size: 62.5%;
   }
 
-  p, a, ul, ol, li {
+  p,
+  a,
+  ul,
+  ol,
+  li {
     font-size: 1.4rem;
     font-family: ${({ theme }) => theme.font.content};
     line-height: 1.6rem;
-    
+
     @media (min-width: ${({ theme }) => theme.breakpoints.s}px) {
       font-size: 1.6rem;
       line-height: 1.8rem;
