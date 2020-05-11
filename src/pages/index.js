@@ -29,19 +29,25 @@ const IndexPage = () => {
   const { index, talks } = data.site.siteMetadata;
   const { headline, code, talk } = index;
 
+  console.log('headline = ', headline);
+
+  const getHeadlineMarkup = () => ({ __html: headline.split('  ').join('<br/> ') });
+  console.log('getHeadlineMarkup = ', getHeadlineMarkup());
+  const getCodeMarkup = () => ({
+    __html: code.split('  ').join('<br/> ').replace('*', '<span>').replace('*', '</span>'),
+  });
+
   return (
     <Layout>
       <SEO title="Home" />
       <Light>
         <Container>
-          <H1>{headline}</H1>
+          <H1 dangerouslySetInnerHTML={getHeadlineMarkup()} />
         </Container>
       </Light>
       <Dark>
         <Container>
-          <H2>
-            I mostly write <span>code</span>.
-          </H2>
+          <H2 dangerouslySetInnerHTML={getCodeMarkup()} />
         </Container>
       </Dark>
       <Light>

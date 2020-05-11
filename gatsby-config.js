@@ -4,8 +4,8 @@ module.exports = {
     description: `Judit Greskovits is a full stack developer with a focus on Javascript, React and Node.js`,
     author: `@juditgreskovits`,
     index: {
-      headline: `My name is Judit Greskovits.`,
-      code: `I mostly write code.`,
+      headline: `My name is  Judit Greskovits.`,
+      code: `I mostly  write *code*.`,
       talk: `Sometimes I talk.`,
     },
     social: {

@@ -5,7 +5,12 @@ export const theme = {
     light: '#fff',
   },
   font: {
-    content: 'Ubuntu',
-    code: 'Ubuntu Mono',
+    content: 'Ubuntu, sans-serif',
+    code: 'Ubuntu Mono, monospace',
+  },
+  breakpoints: {
+    s: 568,
+    m: 768,
+    l: 1024,
   },
 };
