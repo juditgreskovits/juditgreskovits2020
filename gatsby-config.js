@@ -63,18 +63,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
           {
             family: `Ubuntu`,
             variants: [`500`],
-            subsets: [`latin`],
           },
           {
             family: `Ubuntu Mono`,
             variants: [`700`],
-            subsets: [`latin`],
           },
         ],
       },
