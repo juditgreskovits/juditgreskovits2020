@@ -16,3 +16,5 @@
 - mobile responsive - D
 - style 404
 - add Typescript
+
+- redeploy
