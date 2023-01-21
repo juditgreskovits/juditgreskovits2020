@@ -3,6 +3,7 @@ module.exports = {
     title: `Profile of Judit Greskovits`,
     description: `Judit Greskovits is a full stack developer with a focus on Javascript, React and Node.js`,
     author: `@juditgreskovits`,
+    siteUrl: `https://juditgreskovits.com`,
     index: {
       headline: `My name is  Judit Greskovits.`,
       code: `I mostly  write *code*.`,
